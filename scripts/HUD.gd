@@ -1,0 +1,34 @@
+extends CanvasLayer
+
+signal start_game
+
+func _ready():
+	pass
+
+func update_goal(cur_goal, max_goals):
+	$GoalLabel.text = "Goal: " + str(cur_goal) + "/" + str(max_goals)
+
+func update_time(time):
+	$TimeLabel.text = "Time: " + str(int(time))
+	
+func show_message(text):
+	$MessageLabel.text = text
+	$MessageLabel.show()
+	$MessageTimer.start()
+	
+
+func show_game_over():
+	show_message("Game Over")
+
+func _on_StartButton_pressed():
+	$StartButton.hide()
+	$ExitButton.hide()
+	emit_signal("start_game")
+
+
+func _on_ExitButton_pressed():
+	pass # Game Exit
+
+
+func _on_MessageTimer_timeout():
+	$MessageLabel.hide()

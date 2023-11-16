@@ -7,7 +7,7 @@ var velocity = Vector2()
 
 
 func _ready():
-	pass
+	hide()
 
 #input listener
 func _input(event):
@@ -28,6 +28,10 @@ func move_towards(end_position, delta):
 	rotation = direction.angle()
 	position += velocity * delta
 	
+func start(new_position):
+	position = new_position
+	show()
+	$CollisionShape2D.disabled = false	
 	
 func destroy_itself():
 	hide()

@@ -33,7 +33,7 @@ func _on_StartButton_pressed():
 
 
 func _on_ExitButton_pressed():
-	pass # Game Exit
+	get_tree().quit()
 
 
 func _on_MessageTimer_timeout():

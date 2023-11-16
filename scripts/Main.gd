@@ -9,6 +9,8 @@ func new_game():
 	set_process(true)
 	oxygenTimer = 10
 	$HUD.update_time(oxygenTimer)
+	$Player.start($StartPosition.position)
+	
 	$StartTimer.start()
 	$HUD.show_message("Photograph The Beauty Of The Ocean")
 	yield($StartTimer, "timeout")

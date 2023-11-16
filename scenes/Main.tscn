@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=2]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Interactable.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
@@ -27,4 +28,23 @@ __meta__ = {
 "_gizmo_extents_": 22.4
 }
 
+[node name="Interactable" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1120, 600 )
+interact_label = "Press 'E' To Photograph"
+interact_type = "photograph_goal"
+interact_value = "You Found A Crab Lantern!"
+
+[node name="Interactable2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 640, 600 )
+interact_label = "Press 'E' To Photograph"
+interact_type = "photograph_goal"
+interact_value = "You Found Glowing Corals"
+
+[node name="Interactable3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 160, 600 )
+interact_label = "Press 'E' To Photograph"
+interact_type = "photograph_goal"
+interact_value = "You Found A Fossil!"
+
+[connection signal="photograph" from="Player" to="." method="_on_Player_photograph"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]

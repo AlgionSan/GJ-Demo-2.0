@@ -1,13 +1,13 @@
 extends Node
 
 
-export var oxygenTimer : float = 10.0
+export var oxygenTimer : float = 100.0
 
 var game_running: bool = false
 
 func new_game():
 	set_process(true)
-	oxygenTimer = 10
+	oxygenTimer = 100
 	$HUD.update_time(oxygenTimer)
 	$Player.start($StartPosition.position)
 	
@@ -38,7 +38,12 @@ func _process(delta):
 		$HUD.update_time(oxygenTimer)
 	else:
 		game_over()
-		
+	
+	
 	
 
 
+
+
+func _on_Player_photograph(goal):
+	$HUD.update_goal(goal)

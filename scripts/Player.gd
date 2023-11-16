@@ -38,6 +38,7 @@ func move_towards(end_position, delta):
 	var direction = (end_position - position).normalized()
 	velocity = direction * speed 
 	rotation = direction.angle()
+	$PlayerInteractLabel.rotation = 0;
 	position += velocity * delta
 	
 func start(new_position):
@@ -89,6 +90,7 @@ func photograph_marine_life():
 func handle_photograph_goal(cur_interaction):
 	if cur_interaction.interact_value in photographed_objects:
 		print("You've already photographed this object!")
+		$PlayerInteractLabel.text = "You've already photographed this object!"
 	else:
 		photograph_marine_life()
 		photographed_objects.append(cur_interaction.interact_value)

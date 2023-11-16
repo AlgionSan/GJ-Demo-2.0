@@ -6,7 +6,7 @@ export var oxygenTimer : float = 10.0
 var game_running: bool = false
 
 func new_game():
-
+	set_process(true)
 	oxygenTimer = 10
 	$HUD.update_time(oxygenTimer)
 	$StartTimer.start()
@@ -16,7 +16,8 @@ func new_game():
 	#spawn mobs after timeout
 	
 func game_over():
-	#$Player.destroy_itself()
+	$Player.destroy_itself()
+	set_process(false)
 	game_running = false
 	$HUD.show_game_over()
 	
@@ -35,6 +36,7 @@ func _process(delta):
 		$HUD.update_time(oxygenTimer)
 	else:
 		game_over()
+		
 	
 
 

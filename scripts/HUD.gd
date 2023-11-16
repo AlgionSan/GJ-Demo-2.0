@@ -19,6 +19,12 @@ func show_message(text):
 
 func show_game_over():
 	show_message("Game Over")
+	yield($MessageTimer, "timeout")
+	$MessageLabel.text = "Diver's Trove"
+	$MessageLabel.show()
+	$StartButton.show()
+	$ExitButton.show()
+	
 
 func _on_StartButton_pressed():
 	$StartButton.hide()

@@ -3,11 +3,11 @@ extends Area2D
 var speed = 200
 var target_position = Vector2.ZERO
 var velocity = Vector2()
-var screen_size = Vector2.ZERO
+
 
 
 func _ready():
-	screen_size = get_viewport_rect().size
+	pass
 
 #input listener
 func _input(event):

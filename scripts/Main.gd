@@ -1,6 +1,7 @@
 extends Node
 
 signal game_not_running
+signal game_new_game
 
 export var oxygenTimer : float = 100.0
 
@@ -8,6 +9,7 @@ var game_running: bool = false
 
 func new_game():
 	set_process(true)
+	emit_signal("game_new_game")
 	oxygenTimer = 100
 	var goal = 0
 	$HUD.update_time(oxygenTimer)

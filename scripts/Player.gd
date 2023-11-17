@@ -100,3 +100,12 @@ func handle_photograph_goal(cur_interaction):
 
 func _on_Main_game_not_running():
 	set_process(false)
+
+
+func _on_Main_game_new_game():
+	set_process(true) # Replace with function body.
+	marineLifeCount = 0
+	photographed_objects.clear()
+	
+	
+	

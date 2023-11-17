@@ -14,8 +14,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 17.9999
-height = 36.0002
+radius = 23.9999
+height = 64.0002
 
 [sub_resource type="DynamicFont" id=3]
 size = 12
@@ -32,7 +32,6 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708
-scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 1 )
 animation = "dive"
 

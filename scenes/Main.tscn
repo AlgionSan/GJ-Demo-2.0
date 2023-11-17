@@ -1,19 +1,23 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=2]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Interactable.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Mob.tscn" type="PackedScene" id=5]
+[ext_resource path="res://arts/background.png" type="Texture" id=6]
+[ext_resource path="res://arts/interactables/crab_lantern_goal.png" type="Texture" id=7]
+[ext_resource path="res://arts/interactables/upside_down_corals_goals.png" type="Texture" id=8]
+[ext_resource path="res://arts/interactables/fossil.png" type="Texture" id=9]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 156.667, 0, 0, 0, 0, 0, 560 )
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 156.667, 0, 0, 0, 0, 0, 633.333 )
 }
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1280, 120, 0, 0, 0, 0, 1280, 560 )
+"points": PoolVector2Array( 0, 0, 0, 0, 1280, 120, 0, 0, 0, 0, 1280, 640 )
 }
 
 [node name="Main" type="Node"]
@@ -24,6 +28,11 @@ mob_scene = ExtResource( 5 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.156863, 0.231373, 0.454902, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 640, 160 )
@@ -41,22 +50,35 @@ __meta__ = {
 }
 
 [node name="Interactable" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1120, 640 )
+position = Vector2( 1024, 677 )
 interact_label = "Press 'E' To Photograph"
 interact_type = "photograph_goal"
 interact_value = "You Found A Crab Lantern!"
 
+[node name="Sprite" type="Sprite" parent="Interactable"]
+rotation = -0.113446
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 7 )
+
 [node name="Interactable2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 640, 640 )
+position = Vector2( 106, 689 )
 interact_label = "Press 'E' To Photograph"
 interact_type = "photograph_goal"
 interact_value = "You Found Glowing Corals"
 
+[node name="Sprite" type="Sprite" parent="Interactable2"]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 9 )
+
 [node name="Interactable3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 160, 640 )
+position = Vector2( 555, 677 )
 interact_label = "Press 'E' To Photograph"
 interact_type = "photograph_goal"
 interact_value = "You Found A Fossil!"
+
+[node name="Sprite" type="Sprite" parent="Interactable3"]
+scale = Vector2( 1.5, 1.65 )
+texture = ExtResource( 8 )
 
 [node name="Interactable4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 640, 40 )

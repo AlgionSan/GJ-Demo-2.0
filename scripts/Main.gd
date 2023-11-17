@@ -1,5 +1,6 @@
 extends Node
 
+signal game_not_running
 
 export var oxygenTimer : float = 100.0
 
@@ -8,7 +9,9 @@ var game_running: bool = false
 func new_game():
 	set_process(true)
 	oxygenTimer = 100
+	var goal = 0
 	$HUD.update_time(oxygenTimer)
+	$HUD.update_goal(goal)
 	$Player.start($StartPosition.position)
 	
 	$StartTimer.start()
@@ -23,6 +26,12 @@ func game_over():
 	game_running = false
 	$HUD.show_game_over()
 	
+func game_win():
+	set_process(false)
+	game_running = false
+	emit_signal("game_not_running")
+	$HUD.show_game_win()
+	pass
 
 # Called when the node enters the scene tree for the first time.	
 func _ready():
@@ -47,3 +56,6 @@ func _process(delta):
 
 func _on_Player_photograph(goal):
 	$HUD.update_goal(goal)
+	
+	if goal == 3:
+		game_win()

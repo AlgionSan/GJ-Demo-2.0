@@ -46,5 +46,6 @@ interact_label = "Press 'E' To Photograph"
 interact_type = "photograph_goal"
 interact_value = "You Found A Fossil!"
 
+[connection signal="game_not_running" from="." to="Player" method="_on_Main_game_not_running"]
 [connection signal="photograph" from="Player" to="." method="_on_Player_photograph"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]

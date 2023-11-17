@@ -11,6 +11,8 @@ var maxMarineLife : int = 3
 
 # List to store unique identifiers of photographed objects
 var photographed_objects : Array = []
+
+onready var player_label = $PlayerInteractLabel
 onready var all_interactions = []
 
 
@@ -38,7 +40,6 @@ func move_towards(end_position, delta):
 	var direction = (end_position - position).normalized()
 	velocity = direction * speed 
 	rotation = direction.angle()
-	$PlayerInteractLabel.rotation = 0;
 	position += velocity * delta
 	
 func start(new_position):
@@ -64,9 +65,9 @@ func _on_Player_area_exited(area):
 	
 func update_interactions():
 	if all_interactions:
-		$PlayerInteractLabel.text = all_interactions[0].interact_label
+		player_label.text = all_interactions[0].interact_label
 	else:
-		$PlayerInteractLabel.text = ""
+		player_label.text = ""
 		
 
 func execute_interaction():
@@ -90,8 +91,12 @@ func photograph_marine_life():
 func handle_photograph_goal(cur_interaction):
 	if cur_interaction.interact_value in photographed_objects:
 		print("You've already photographed this object!")
-		$PlayerInteractLabel.text = "You've already photographed this object!"
+		player_label.text = "You've already photographed this object!"
 	else:
 		photograph_marine_life()
 		photographed_objects.append(cur_interaction.interact_value)
 
+
+
+func _on_Main_game_not_running():
+	set_process(false)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://arts/interactables/crab_lantern_goal.png" type="Texture" id=7]
 [ext_resource path="res://arts/interactables/upside_down_corals_goals.png" type="Texture" id=8]
 [ext_resource path="res://arts/interactables/fossil.png" type="Texture" id=9]
+[ext_resource path="res://arts/interactables/ship_hull.png" type="Texture" id=10]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -81,9 +82,15 @@ texture = ExtResource( 8 )
 
 [node name="Interactable4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 640, 40 )
+scale = Vector2( 6, 1 )
 interact_label = "Press 'E\" Return To Ship"
 interact_type = "return_to_ship"
 interact_value = "You Return To Ship"
+
+[node name="Sprite" type="Sprite" parent="Interactable4"]
+position = Vector2( 5.5, -15 )
+scale = Vector2( 1, 1.25 )
+texture = ExtResource( 10 )
 
 [node name="MobLeftPath" type="Path2D" parent="."]
 position = Vector2( 0, -50.9091 )

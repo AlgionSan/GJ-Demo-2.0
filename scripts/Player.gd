@@ -1,6 +1,7 @@
 extends Area2D
 
 signal photograph
+signal return_ship
 
 
 var speed = 200
@@ -76,6 +77,8 @@ func execute_interaction():
 		match cur_interaction.interact_type:
 			"photograph_goal": 
 				handle_photograph_goal(cur_interaction)
+			"return_to_ship":
+				return_to_ship()
 				
 func photograph_marine_life():
 	if marineLifeCount < maxMarineLife:
@@ -96,7 +99,8 @@ func handle_photograph_goal(cur_interaction):
 		photograph_marine_life()
 		photographed_objects.append(cur_interaction.interact_value)
 
-
+func return_to_ship():
+	emit_signal("return_ship", marineLifeCount)
 
 func _on_Main_game_not_running():
 	set_process(false)

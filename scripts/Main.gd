@@ -52,12 +52,18 @@ func _process(delta):
 	
 	
 	
-
+func end_game(goal):
+	if goal == 3:
+		game_win()
+	else:
+		game_over()
 
 
 
 func _on_Player_photograph(goal):
 	$HUD.update_goal(goal)
 	
-	if goal == 3:
-		game_win()
+
+
+func _on_Player_return_ship(goal):
+	end_game(goal) # Replace with function body.

@@ -14,7 +14,7 @@ anchor_bottom = 1.0
 color = Color( 0.156863, 0.231373, 0.454902, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 640, 120 )
+position = Vector2( 640, 160 )
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
 
@@ -23,30 +23,37 @@ wait_time = 3.0
 one_shot = true
 
 [node name="StartPosition" type="Position2D" parent="."]
-position = Vector2( 640, 120 )
+position = Vector2( 640, 160 )
 __meta__ = {
 "_gizmo_extents_": 22.4
 }
 
 [node name="Interactable" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1120, 600 )
+position = Vector2( 1120, 640 )
 interact_label = "Press 'E' To Photograph"
 interact_type = "photograph_goal"
 interact_value = "You Found A Crab Lantern!"
 
 [node name="Interactable2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 640, 600 )
+position = Vector2( 640, 640 )
 interact_label = "Press 'E' To Photograph"
 interact_type = "photograph_goal"
 interact_value = "You Found Glowing Corals"
 
 [node name="Interactable3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 160, 600 )
+position = Vector2( 160, 640 )
 interact_label = "Press 'E' To Photograph"
 interact_type = "photograph_goal"
 interact_value = "You Found A Fossil!"
 
+[node name="Interactable4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 640, 40 )
+interact_label = "Press 'E\" Return To Ship"
+interact_type = "return_to_ship"
+interact_value = "You Return To Ship"
+
 [connection signal="game_new_game" from="." to="Player" method="_on_Main_game_new_game"]
 [connection signal="game_not_running" from="." to="Player" method="_on_Main_game_not_running"]
 [connection signal="photograph" from="Player" to="." method="_on_Player_photograph"]
+[connection signal="return_ship" from="Player" to="." method="_on_Player_return_ship"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]

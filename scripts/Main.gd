@@ -19,7 +19,7 @@ func new_game():
 	$HUD.update_goal(goal)
 	get_tree().call_group("mobs", "queue_free")
 	$Player.start($StartPosition.position)
-	
+	$Music.play()
 	$StartTimer.start()
 	
 	$HUD.show_message("Photograph The Beauty Of The Ocean")
@@ -34,14 +34,19 @@ func game_over():
 	game_running = false
 	$MobTimer.stop()
 	$HUD.show_game_over()
+	$Music.stop()
+	$DeathSound.play()
 
 	
 func game_win():
+	$Player.destroy_itself()
 	set_process(false)
 	game_running = false
 	emit_signal("game_not_running")
 	$MobTimer.stop()
 	$HUD.show_game_win()
+	$Music.stop()
+	$WinSound.play()
 
 
 # Called when the node enters the scene tree for the first time.	

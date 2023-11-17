@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_game_sound_win.mp3-7c35f8600c41d9e7b9b84a9bd8838ac0.mp3str"
+
+[deps]
+
+source_file="res://music and sfx/zapsplat_game_sound_win.mp3"
+dest_files=[ "res://.import/zapsplat_game_sound_win.mp3-7c35f8600c41d9e7b9b84a9bd8838ac0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

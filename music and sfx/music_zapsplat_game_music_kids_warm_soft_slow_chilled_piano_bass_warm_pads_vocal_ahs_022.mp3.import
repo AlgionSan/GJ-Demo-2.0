@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/music_zapsplat_game_music_kids_warm_soft_slow_chilled_piano_bass_warm_pads_vocal_ahs_022.mp3-2a1ac978c309499b42a5fb0d529b2c88.mp3str"
+
+[deps]
+
+source_file="res://music and sfx/music_zapsplat_game_music_kids_warm_soft_slow_chilled_piano_bass_warm_pads_vocal_ahs_022.mp3"
+dest_files=[ "res://.import/music_zapsplat_game_music_kids_warm_soft_slow_chilled_piano_bass_warm_pads_vocal_ahs_022.mp3-2a1ac978c309499b42a5fb0d529b2c88.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

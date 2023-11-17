@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_multimedia_game_sound_kids_game_nylon_plucked_fail_error_incorrect_78091.mp3-bd2a15506e64028d48d56d6db7d89604.mp3str"
+
+[deps]
+
+source_file="res://music and sfx/zapsplat_multimedia_game_sound_kids_game_nylon_plucked_fail_error_incorrect_78091.mp3"
+dest_files=[ "res://.import/zapsplat_multimedia_game_sound_kids_game_nylon_plucked_fail_error_incorrect_78091.mp3-bd2a15506e64028d48d56d6db7d89604.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

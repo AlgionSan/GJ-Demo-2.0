@@ -2,6 +2,7 @@ extends Area2D
 
 signal photograph
 signal return_ship
+signal hit
 
 
 var speed = 200
@@ -113,3 +114,9 @@ func _on_Main_game_new_game():
 	
 	
 	
+
+
+func _on_Player_body_entered(body):
+	hide()
+	$CollisionShape2D.set_deferred("disabled",true)
+	emit_signal("hit")

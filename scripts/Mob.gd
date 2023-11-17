@@ -1,8 +1,8 @@
 extends RigidBody2D
 
 
-export var min_speed = 100.0
-export var max_speed = 300.0
+export var min_speed = 200.0
+export var max_speed = 500.0
 
 func _ready():
 

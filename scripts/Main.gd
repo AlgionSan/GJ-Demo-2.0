@@ -95,13 +95,13 @@ func _on_MobTimer_timeout():
 	if spawn_on_left:
 		mob.position = mob_spawn_left.position
 		direction = mob_spawn_left.rotation - PI / 2
-
+		
 		mob.rotation = direction
 		
 	else:
 		mob.position = mob_spawn_right.position
 		direction = mob_spawn_right.rotation + PI / 2
-
+		mob.get_node("AnimatedSprite").flip_v = true
 		mob.rotation = direction
 	
 	#movement

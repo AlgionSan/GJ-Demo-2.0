@@ -5,6 +5,8 @@ signal return_ship
 signal hit
 
 
+
+
 var speed = 200
 var target_position = Vector2.ZERO
 var velocity = Vector2()
@@ -34,7 +36,10 @@ func _input(event):
 #update function per frame
 func _process(delta):
 	if position.distance_to(target_position) > 5:
+		$AnimatedSprite.play()
 		move_towards(target_position,delta)
+	else:
+		$AnimatedSprite.stop()
 
 #movement	
 func move_towards(end_position, delta):
@@ -68,6 +73,7 @@ func _on_Player_area_exited(area):
 func update_interactions():
 	if all_interactions:
 		player_label.text = all_interactions[0].interact_label
+
 	else:
 		player_label.text = ""
 		
@@ -101,6 +107,7 @@ func handle_photograph_goal(cur_interaction):
 		photographed_objects.append(cur_interaction.interact_value)
 
 func return_to_ship():
+	$AnimatedSprite.stop()
 	emit_signal("return_ship", marineLifeCount)
 
 func _on_Main_game_not_running():

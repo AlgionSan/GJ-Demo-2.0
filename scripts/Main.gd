@@ -65,6 +65,7 @@ func end_game(goal):
 	if goal == 3:
 		game_win()
 	else:
+		$MobTimer.stop()
 		game_over()
 
 

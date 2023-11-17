@@ -4,7 +4,7 @@ signal game_not_running
 signal game_new_game
 
 export (PackedScene) var mob_scene
-export var oxygenTimer : float = 100.0
+export var oxygenTimer : float = 60
 
 
 var game_running: bool = false
@@ -12,7 +12,7 @@ var game_running: bool = false
 func new_game():
 	set_process(true)
 	emit_signal("game_new_game")
-	oxygenTimer = 100
+	oxygenTimer = 60
 	var goal = 0
 	
 	$HUD.update_time(oxygenTimer)
@@ -22,7 +22,7 @@ func new_game():
 	$Music.play()
 	$StartTimer.start()
 	
-	$HUD.show_message("Photograph The Beauty Of The Ocean")
+	$HUD.show_message("Photographie La beauté de l’océan")
 	yield($StartTimer, "timeout")
 	game_running= true
 	#spawn mobs after timeout

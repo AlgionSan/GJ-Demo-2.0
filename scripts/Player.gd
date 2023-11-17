@@ -24,6 +24,10 @@ func _ready():
 	hide()
 	update_interactions()
 
+	#make sure it randomize the pseudo rando of computer
+	#this will randomize spawn mobs every game
+	randomize()
+
 #input listener
 func _input(event):
 
@@ -101,7 +105,7 @@ func photograph_marine_life():
 func handle_photograph_goal(cur_interaction):
 	if cur_interaction.interact_value in photographed_objects:
 		print("You've already photographed this object!")
-		player_label.text = "You've already photographed this object!"
+		player_label.text = "Vous avez déjà photographié cet objet "
 	else:
 		photograph_marine_life()
 		photographed_objects.append(cur_interaction.interact_value)

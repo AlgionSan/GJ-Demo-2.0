@@ -10,7 +10,7 @@ func update_goal(cur_goal):
 	$GoalLabel.text = "Goal: " + str(cur_goal) + "/" + str(3)
 
 func update_time(time):
-	$TimeLabel.text = "Time: " + str(int(time))
+	$TimeLabel.text = "Oxygen: " + str(int(time))
 	
 	
 func show_message(text):
@@ -34,6 +34,7 @@ func show_game_win():
 	yield($MessageTimer, "timeout")
 	$MessageLabel.text = "Diver's Trove"
 	$MessageLabel.show()
+	$HowToPlayButton.show()
 	$StartButton.show()
 	$ExitButton.show()
 

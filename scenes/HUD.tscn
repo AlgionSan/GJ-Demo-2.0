@@ -93,6 +93,15 @@ text = "How To Play"
 wait_time = 2.0
 one_shot = true
 
+[node name="CopyrightLabel" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -162.0
+margin_top = -14.0
+text = "Made By: Kyle and Joshua"
+
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="button_down" from="HowToPlayButton" to="." method="_on_HowToPlayButton_button_down"]

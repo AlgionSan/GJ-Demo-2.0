@@ -128,5 +128,6 @@ stream = ExtResource( 11 )
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="photograph" from="Player" to="." method="_on_Player_photograph"]
 [connection signal="return_ship" from="Player" to="." method="_on_Player_return_ship"]
+[connection signal="htp_show" from="HUD" to="." method="_on_HUD_htp_show"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]

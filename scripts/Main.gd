@@ -3,11 +3,16 @@ extends Node
 signal game_not_running
 signal game_new_game
 
+
+
 export (PackedScene) var mob_scene
 export var oxygenTimer : float = 100.0
 
 
 var game_running: bool = false
+
+
+	
 
 func new_game():
 	set_process(true)
@@ -113,4 +118,19 @@ func _on_MobTimer_timeout():
 	var velocity = Vector2(rand_range(mob.min_speed, mob.max_speed), 0)
 	mob.linear_velocity = velocity.rotated(direction)
 	
+	
+
+
+func _on_HUD_htp_show():
+	
+	var instructions_scene = preload("res://scenes/HowToPlay.tscn")
+	var instructions_instance = instructions_scene.instance()
+	
+	# Add the instructions scene as a child of the main scene
+	get_tree().get_root().add_child(instructions_instance)
+	
+	instructions_instance.connect("show_menu", self, "_on_HowToPlay_return")
+
+func _on_HowToPlay_return():
+	$HUD.show_hud()
 	

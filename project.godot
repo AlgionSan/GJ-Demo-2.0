@@ -20,9 +20,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Gj Demo 2 . 0"
+config/name="Diver's Trove"
 run/main_scene="res://scenes/Main.tscn"
-config/icon="res://arts/icon.png"
+config/icon="res://arts/interactables/crab_lantern_goal.png"
 
 [display]
 

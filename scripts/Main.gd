@@ -6,7 +6,7 @@ signal game_new_game
 
 
 export (PackedScene) var mob_scene
-export var oxygenTimer : float = 40.0
+export var oxygenTimer : float = 60.0
 
 
 var game_running: bool = false
@@ -17,7 +17,7 @@ var game_running: bool = false
 func new_game():
 	set_process(true)
 	emit_signal("game_new_game")
-	oxygenTimer = 40.0
+	oxygenTimer = 60.0
 	var goal = 0
 	
 	$HUD.update_time(oxygenTimer)

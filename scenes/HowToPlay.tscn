@@ -2,9 +2,9 @@
 
 [ext_resource path="res://font/xolonium-regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/HowToPlay.gd" type="Script" id=2]
-[ext_resource path="res://arts/HowToPlay/avoid_tutorial_englishpng.png" type="Texture" id=3]
-[ext_resource path="res://arts/HowToPlay/diver-tutorial-english.png" type="Texture" id=4]
-[ext_resource path="res://arts/HowToPlay/goal_english_tutorialt.png" type="Texture" id=5]
+[ext_resource path="res://arts/HowToPlay/avoid_tutorial_french.png" type="Texture" id=3]
+[ext_resource path="res://arts/HowToPlay/goal_french_tutorialt.png" type="Texture" id=4]
+[ext_resource path="res://arts/HowToPlay/diver-tutorial-french.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -36,7 +36,7 @@ margin_left = -104.0
 margin_top = -192.0
 margin_right = 96.0
 margin_bottom = 8.0
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="TextureRect2" type="TextureRect" parent="ColorRect"]
 anchor_left = 0.5
@@ -58,7 +58,7 @@ margin_left = -336.0
 margin_top = -192.0
 margin_right = -136.0
 margin_bottom = 8.0
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 stretch_mode = 1
 
 [node name="HowToPlay_Label" type="Label" parent="."]
@@ -71,7 +71,7 @@ margin_top = -288.0
 margin_right = 320.0
 margin_bottom = -232.0
 custom_fonts/font = SubResource( 1 )
-text = "How To Play"
+text = "Comment jouer"
 align = 1
 
 [node name="Instructions" type="Label" parent="."]
@@ -84,9 +84,9 @@ margin_top = 40.0
 margin_right = 320.0
 margin_bottom = 106.0
 custom_fonts/font = SubResource( 3 )
-text = "INSTRUCTIONS:
-DIVE AND DISCOVER THE BEAUTY OF THE OCEAN.
-RETURN TO SHIP BEFORE OXYGEN RUNS OUT."
+text = "LES DIRECTIVES:
+PLONGEZ ET DÉCOUVREZ LA BEAUTÉ DE L'OCÉAN.
+RETOURNER AU NAVIRE AVANT QUE L'OXYGÈNE SOIT ÉPUISÉ."
 valign = 3
 
 [node name="Return_Button" type="Button" parent="."]
@@ -99,6 +99,6 @@ margin_top = -208.0
 margin_right = 160.0
 margin_bottom = -152.0
 custom_fonts/font = SubResource( 2 )
-text = "RETURN"
+text = "RETOUR"
 
 [connection signal="button_down" from="Return_Button" to="." method="_on_Return_Button_button_down"]

@@ -101,7 +101,7 @@ func photograph_marine_life():
 func handle_photograph_goal(cur_interaction):
 	if cur_interaction.interact_value in photographed_objects:
 		print("You've already photographed this object!")
-		player_label.text = "You've already photographed this object!"
+		player_label.text = "Vous avez déjà photographié cet objet!"
 	else:
 		photograph_marine_life()
 		photographed_objects.append(cur_interaction.interact_value)

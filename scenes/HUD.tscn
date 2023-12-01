@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 40
+size = 38
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -22,7 +22,7 @@ margin_top = 64.0
 margin_right = -40.0
 margin_bottom = 128.0
 custom_fonts/font = SubResource( 1 )
-text = "Goal: 0/3"
+text = "Objectif: 0/3"
 align = 2
 valign = 1
 autowrap = true
@@ -33,7 +33,7 @@ margin_top = 64.0
 margin_right = 640.0
 margin_bottom = 128.0
 custom_fonts/font = SubResource( 1 )
-text = "Oxygen: 0"
+text = "Oxygène: 0"
 valign = 1
 autowrap = true
 
@@ -63,7 +63,7 @@ margin_top = -104.0
 margin_right = 160.0
 margin_bottom = -49.0
 custom_fonts/font = SubResource( 1 )
-text = "Play"
+text = "Commencer"
 
 [node name="ExitButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -75,7 +75,7 @@ margin_top = 152.0
 margin_right = 160.0
 margin_bottom = 207.0
 custom_fonts/font = SubResource( 1 )
-text = "Exit"
+text = "Quitter"
 
 [node name="HowToPlayButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -84,10 +84,10 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -160.0
 margin_top = -336.0
-margin_right = 161.0
+margin_right = 162.0
 margin_bottom = -281.0
 custom_fonts/font = SubResource( 1 )
-text = "How To Play"
+text = "Comment jouer"
 
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -100,7 +100,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -162.0
 margin_top = -14.0
-text = "Made By: Kyle and Joshua"
+text = "Faite par: Kyle and Joshua"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]

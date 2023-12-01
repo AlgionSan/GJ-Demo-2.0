@@ -27,7 +27,7 @@ func new_game():
 	$Music.play()
 	$StartTimer.start()
 	
-	$HUD.show_message("Photograph The Beauty Of The Ocean")
+	$HUD.show_message("Photographiez la beauté de l’océan")
 	yield($StartTimer, "timeout")
 	game_running= true
 	#spawn mobs after timeout

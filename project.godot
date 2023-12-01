@@ -47,6 +47,10 @@ interact={
 
 2d_physics/layer_2="interactions"
 
+[locale]
+
+locale_filter=[ 0, [  ] ]
+
 [mono]
 
 project/assembly_name="Gj Demo 2 . 0"

@@ -7,10 +7,10 @@ func _ready():
 	hide_hud()
 	
 func update_goal(cur_goal):
-	$GoalLabel.text = "Goal: " + str(cur_goal) + "/" + str(3)
+	$GoalLabel.text = "Objectif: " + str(cur_goal) + "/" + str(3)
 
 func update_time(time):
-	$TimeLabel.text = "Oxygen: " + str(int(time))
+	$TimeLabel.text = "Oxygène: " + str(int(time))
 	
 	
 func show_message(text):
@@ -20,7 +20,7 @@ func show_message(text):
 	
 
 func show_game_over():
-	show_message("Game Over")
+	show_message("Jeu terminé")
 	yield($MessageTimer, "timeout")
 	$MessageLabel.text = "Diver's Trove"
 	$MessageLabel.show()
@@ -30,7 +30,7 @@ func show_game_over():
 	$ExitButton.show()
 
 func show_game_win():
-	show_message("You Won")
+	show_message("Vous gagnez!")
 	yield($MessageTimer, "timeout")
 	$MessageLabel.text = "Diver's Trove"
 	$MessageLabel.show()

@@ -54,7 +54,7 @@ __meta__ = {
 
 [node name="Interactable" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1024, 677 )
-interact_label = "Press 'E' To Photograph"
+interact_label = "Appuyez sur 'E' pour photographier"
 interact_type = "photograph_goal"
 interact_value = "You Found A Crab Lantern!"
 
@@ -65,7 +65,7 @@ texture = ExtResource( 7 )
 
 [node name="Interactable2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 106, 689 )
-interact_label = "Press 'E' To Photograph"
+interact_label = "Appuyez sur 'E' pour photographier"
 interact_type = "photograph_goal"
 interact_value = "You Found Glowing Corals"
 
@@ -75,7 +75,7 @@ texture = ExtResource( 9 )
 
 [node name="Interactable3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 555, 677 )
-interact_label = "Press 'E' To Photograph"
+interact_label = "Appuyez sur 'E' pour photographier"
 interact_type = "photograph_goal"
 interact_value = "You Found A Fossil!"
 
@@ -86,7 +86,7 @@ texture = ExtResource( 8 )
 [node name="Interactable4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 640, 40 )
 scale = Vector2( 6, 1 )
-interact_label = "Press 'E\" Return To Ship"
+interact_label = "Appuyez sur 'E'  Retour à l'expédition"
 interact_type = "return_to_ship"
 interact_value = "You Return To Ship"
 

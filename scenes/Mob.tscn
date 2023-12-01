@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://arts/stingray/stingray_swim.png" type="Texture" id=1]
+[ext_resource path="res://arts/stingray/stingray_swim2.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Mob.gd" type="Script" id=3]
+[ext_resource path="res://arts/shark/shark_swim_2.png" type="Texture" id=4]
+[ext_resource path="res://arts/shark/shark_swim_1.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "shark",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "stingray",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 28.9999
+height = 82.0002
+
+[node name="Mob" type="RigidBody2D" groups=["mobs"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -3 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 1 )
+animation = "shark"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+scale = Vector2( 1, 0.6 )
+rect = Rect2( -50, -40, 100, 80 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -1,19 +1,44 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=2]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Interactable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Mob.tscn" type="PackedScene" id=5]
+[ext_resource path="res://arts/background.png" type="Texture" id=6]
+[ext_resource path="res://arts/interactables/crab_lantern_goal.png" type="Texture" id=7]
+[ext_resource path="res://arts/interactables/upside_down_corals_goals.png" type="Texture" id=8]
+[ext_resource path="res://arts/interactables/fossil.png" type="Texture" id=9]
+[ext_resource path="res://arts/interactables/ship_hull.png" type="Texture" id=10]
+[ext_resource path="res://music and sfx/zapsplat_multimedia_game_sound_kids_game_nylon_plucked_fail_error_incorrect_78091.mp3" type="AudioStream" id=11]
+[ext_resource path="res://music and sfx/music_zapsplat_game_music_kids_warm_soft_slow_chilled_piano_bass_warm_pads_vocal_ahs_022.mp3" type="AudioStream" id=12]
+[ext_resource path="res://music and sfx/zapsplat_game_sound_win.mp3" type="AudioStream" id=13]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 156.667, 0, 0, 0, 0, 0, 633.333 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1280, 120, 0, 0, 0, 0, 1280, 640 )
+}
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
+mob_scene = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.156863, 0.231373, 0.454902, 1 )
 
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 640, 120 )
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
 
@@ -22,9 +47,87 @@ wait_time = 3.0
 one_shot = true
 
 [node name="StartPosition" type="Position2D" parent="."]
-position = Vector2( 640, 120 )
+position = Vector2( 640, 160 )
 __meta__ = {
 "_gizmo_extents_": 22.4
 }
 
+[node name="Interactable" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1024, 677 )
+interact_label = "Press 'E' To Photograph"
+interact_type = "photograph_goal"
+interact_value = "You Found A Crab Lantern!"
+
+[node name="Sprite" type="Sprite" parent="Interactable"]
+rotation = -0.113446
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 7 )
+
+[node name="Interactable2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 106, 689 )
+interact_label = "Press 'E' To Photograph"
+interact_type = "photograph_goal"
+interact_value = "You Found Glowing Corals"
+
+[node name="Sprite" type="Sprite" parent="Interactable2"]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 9 )
+
+[node name="Interactable3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 555, 677 )
+interact_label = "Press 'E' To Photograph"
+interact_type = "photograph_goal"
+interact_value = "You Found A Fossil!"
+
+[node name="Sprite" type="Sprite" parent="Interactable3"]
+scale = Vector2( 1.5, 1.65 )
+texture = ExtResource( 8 )
+
+[node name="Interactable4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 640, 40 )
+scale = Vector2( 6, 1 )
+interact_label = "Press 'E\" Return To Ship"
+interact_type = "return_to_ship"
+interact_value = "You Return To Ship"
+
+[node name="Sprite" type="Sprite" parent="Interactable4"]
+position = Vector2( 5.5, -15 )
+scale = Vector2( 1, 1.25 )
+texture = ExtResource( 10 )
+
+[node name="MobLeftPath" type="Path2D" parent="."]
+position = Vector2( 0, -50.9091 )
+scale = Vector2( 1, 1.09091 )
+curve = SubResource( 1 )
+
+[node name="LeftSpawnLocation" type="PathFollow2D" parent="MobLeftPath"]
+position = Vector2( 0, 156.667 )
+rotation = 1.5708
+
+[node name="MobRightPath" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="RightSpawnLocation" type="PathFollow2D" parent="MobRightPath"]
+position = Vector2( 1280, 120.002 )
+rotation = 1.5708
+offset = 0.00302124
+
+[node name="MobTimer" type="Timer" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[connection signal="game_new_game" from="." to="Player" method="_on_Main_game_new_game"]
+[connection signal="game_not_running" from="." to="Player" method="_on_Main_game_not_running"]
+[connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="photograph" from="Player" to="." method="_on_Player_photograph"]
+[connection signal="return_ship" from="Player" to="." method="_on_Player_return_ship"]
+[connection signal="htp_show" from="HUD" to="." method="_on_HUD_htp_show"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
